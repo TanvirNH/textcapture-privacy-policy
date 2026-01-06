@@ -1,129 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TextCapture - Privacy Policy</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TextCapture - Privacy Policy</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+  <style>
+    :root {
+      --bg-primary: #f8f9fb;
+      --bg-secondary: #e8ecf1;
+      --glass-light: rgba(255, 255, 255, 0.85);
+      --glass-light-border: rgba(255, 255, 255, 0.35);
+      --text-primary: #0d1117;
+      --text-secondary: rgba(13, 17, 23, 0.75);
+      --text-tertiary: rgba(13, 17, 23, 0.55);
+      --accent-dark: #0d1117;
+      --accent-text: #ffffff;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.15);
+      --radius: 20px;
+      --radius-sm: 12px;
+    }
 
-        .container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
-            width: 100%;
-            padding: 60px 40px;
-        }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #0d1117;
+        --bg-secondary: #161b22;
+        --glass-light: rgba(30, 34, 46, 0.85);
+        --glass-light-border: rgba(255, 255, 255, 0.12);
+        --text-primary: #f0f6fc;
+        --text-secondary: rgba(240, 246, 252, 0.8);
+        --text-tertiary: rgba(240, 246, 252, 0.6);
+        --accent-dark: #f0f6fc;
+        --accent-text: #0d1117;
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
+        --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.6);
+      }
+    }
 
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 30px;
-        }
+    html[data-theme="light"] {
+      --bg-primary: #f8f9fb;
+      --bg-secondary: #e8ecf1;
+      --glass-light: rgba(255, 255, 255, 0.85);
+      --glass-light-border: rgba(255, 255, 255, 0.35);
+      --text-primary: #0d1117;
+      --text-secondary: rgba(13, 17, 23, 0.75);
+      --text-tertiary: rgba(13, 17, 23, 0.55);
+      --accent-dark: #0d1117;
+      --accent-text: #ffffff;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.15);
+    }
 
-        h1 {
-            font-size: 2.5em;
-            color: #667eea;
-            margin-bottom: 10px;
-        }
+    html[data-theme="dark"] {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --glass-light: rgba(30, 34, 46, 0.85);
+      --glass-light-border: rgba(255, 255, 255, 0.12);
+      --text-primary: #f0f6fc;
+      --text-secondary: rgba(240, 246, 252, 0.8);
+      --text-tertiary: rgba(240, 246, 252, 0.6);
+      --accent-dark: #f0f6fc;
+      --accent-text: #0d1117;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.6);
+    }
 
-        .content {
-            margin-bottom: 40px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        h2 {
-            font-size: 1.3em;
-            color: #667eea;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-left: 4px solid #667eea;
-            padding-left: 15px;
-        }
+    html,
+    body {
+      height: 100%;
+    }
 
-        h2:first-of-type {
-            margin-top: 0;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+      color: var(--text-primary);
+      background:
+        radial-gradient(
+          ellipse 1500px 800px at 50% 0%,
+          var(--bg-secondary),
+          transparent 65%
+        ),
+        linear-gradient(
+          to bottom,
+          var(--bg-primary),
+          var(--bg-primary)
+        );
+      min-height: 100vh;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
 
-        p {
-            margin-bottom: 15px;
-            color: #555;
-            line-height: 1.8;
-        }
+    .wrapper {
+      max-width: 920px;
+      margin: 0 auto;
+    }
 
-        a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-        }
+    /* Header with theme toggle */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding: 0 4px;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    .header-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 25px;
-            }
+    .theme-toggle {
+      appearance: none;
+      background: var(--glass-light);
+      border: 1px solid var(--glass-light-border);
+      color: var(--text-primary);
+      border-radius: 100px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-sm);
+      text-transform: uppercase;
+    }
 
-            h1 {
-                font-size: 1.8em;
-            }
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.65);
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
 
-            h2 {
-                font-size: 1.1em;
-            }
-        }
-    </style>
+    .theme-toggle:active {
+      transform: translateY(0);
+    }
+
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--accent-dark);
+      outline-offset: 4px;
+    }
+
+    /* Main Glass Card */
+    .glass-card {
+      background: var(--glass-light);
+      border: 1px solid var(--glass-light-border);
+      border-radius: var(--radius);
+      padding: 56px 52px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated subtle gradient overlay */
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(
+          circle at 20% 50%,
+          rgba(13, 17, 23, 0.03),
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(13, 17, 23, 0.02),
+          transparent 50%
+        );
+      pointer-events: none;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, 30px); }
+    }
+
+    .glass-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header section */
+    .header-section {
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--glass-light-border);
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+      background: linear-gradient(
+        135deg,
+        var(--text-primary) 0%,
+        var(--text-secondary) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Content sections */
+    .policy-section {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 14px;
+      margin-top: 0;
+      padding: 8px 0;
+    }
+
+    .policy-section:first-of-type h2 {
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    p strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* Links */
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 700;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-dark);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent-dark);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--glass-light-border) 20%,
+        var(--glass-light-border) 80%,
+        transparent
+      );
+      margin: 36px 0;
+    }
+
+    /* Footer section */
+    .footer-section {
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .footer-section p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .glass-card {
+        padding: 40px 30px;
+        border-radius: 18px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 11px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .glass-card {
+        padding: 28px 20px;
+        border-radius: 14px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .header-section {
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+      }
+
+      .policy-section {
+        margin-bottom: 24px;
+      }
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>TextCapture</h1>
-        </header>
-
-        <div class="content">
-            <h2>PRIVACY POLICY FOR TEXTCAPTURE</h2>
-            
-            <p><strong>Last Updated: January 2026</strong></p>
-
-            <h2>1. DATA COLLECTION</h2>
-            <p>TextCapture does not collect, store, or transmit any personal data, user information, or analytics. The app operates entirely on your local machine.</p>
-
-            <h2>2. LOCAL STORAGE</h2>
-            <p>All captured text is stored locally on your computer. No data is sent to external servers.</p>
-
-            <h2>3. PERMISSIONS</h2>
-            <p>TextCapture requests screen capture permission only to allow you to capture text from your screen. This is processed locally.</p>
-
-            <h2>4. THIRD-PARTY SERVICES</h2>
-            <p>TextCapture does not use any third-party services, analytics tools, or tracking software.</p>
-
-            <h2>5. CHANGES TO THIS POLICY</h2>
-            <p>We may update this policy from time to time. Any changes will be posted here with an updated date.</p>
-
-            <p style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee;">
-                If you have questions about this privacy policy, please contact me at <a href="mailto:tanvir4talk@gmail.com">tanvir4talk@gmail.com</a>.
-            </p>
-        </div>
+  <div class="wrapper">
+    <div class="header">
+      <div class="header-title">Privacy & Security</div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        ☀️ / 🌙
+      </button>
     </div>
+
+    <div class="glass-card">
+      <div class="header-section">
+        <h1>TextCapture</h1>
+      </div>
+
+      <div class="policy-section">
+        <h2>Privacy Policy for TextCapture</h2>
+        <p><strong>Last Updated: January 2026</strong></p>
+      </div>
+
+      <div class="policy-section">
+        <h2>1. Data Collection</h2>
+        <p>TextCapture does not collect, store, or transmit any personal data, user information, or analytics. The app operates entirely on your local machine.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>2. Local Storage</h2>
+        <p>All captured text is stored locally on your computer. No data is sent to external servers.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>3. Permissions</h2>
+        <p>TextCapture requests screen capture permission only to allow you to capture text from your screen. This is processed locally.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>4. Third-Party Services</h2>
+        <p>TextCapture does not use any third-party services, analytics tools, or tracking software.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>5. Changes to This Policy</h2>
+        <p>We may update this policy from time to time. Any changes will be posted here with an updated date.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="footer-section">
+        <p>
+          If you have questions about this privacy policy, please contact me at
+          <a href="mailto:tanvir4talk@gmail.com">tanvir4talk@gmail.com</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+
+      const saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        root.setAttribute("data-theme", saved);
+      }
+
+      function updateToggle() {
+        const theme = root.getAttribute("data-theme");
+        if (theme === "dark") {
+          btn.textContent = "☀️ Light";
+        } else if (theme === "light") {
+          btn.textContent = "🌙 Dark";
+        } else {
+          btn.textContent = "☀️ / 🌙";
+        }
+      }
+
+      updateToggle();
+
+      btn.addEventListener("click", function () {
+        const current = root.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        updateToggle();
+      });
+    })();
+  </script>
 </body>
 </html>
