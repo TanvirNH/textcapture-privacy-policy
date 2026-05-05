@@ -3,453 +3,557 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TextCapture - Privacy Policy</title>
-
+  <title>TextCapture — Privacy Policy</title>
+  <meta name="description" content="TextCapture privacy policy — a fully local, zero-data-collection macOS app." />
   <style>
     :root {
-      --bg-primary: #f8f9fb;
-      --bg-secondary: #e8ecf1;
-      --glass-light: rgba(255, 255, 255, 0.85);
-      --glass-light-border: rgba(255, 255, 255, 0.35);
-      --text-primary: #0d1117;
-      --text-secondary: rgba(13, 17, 23, 0.75);
-      --text-tertiary: rgba(13, 17, 23, 0.55);
-      --accent-dark: #0d1117;
-      --accent-text: #ffffff;
-      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
-      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.15);
-      --radius: 20px;
+      --bg: #07070a;
+      --bg-2: #0d0d11;
+      --surface: #111115;
+      --surface-2: #17171d;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text: #f5f5f7;
+      --text-2: rgba(245, 245, 247, 0.74);
+      --text-3: rgba(245, 245, 247, 0.5);
+      --accent: #ff3b3b;
+      --accent-2: #ff6a5b;
+      --accent-soft: rgba(255, 59, 59, 0.14);
+      --radius: 22px;
       --radius-sm: 12px;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-primary: #0d1117;
-        --bg-secondary: #161b22;
-        --glass-light: rgba(30, 34, 46, 0.85);
-        --glass-light-border: rgba(255, 255, 255, 0.12);
-        --text-primary: #f0f6fc;
-        --text-secondary: rgba(240, 246, 252, 0.8);
-        --text-tertiary: rgba(240, 246, 252, 0.6);
-        --accent-dark: #f0f6fc;
-        --accent-text: #0d1117;
-        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-        --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
-        --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.6);
-      }
-    }
-
-    html[data-theme="light"] {
-      --bg-primary: #f8f9fb;
-      --bg-secondary: #e8ecf1;
-      --glass-light: rgba(255, 255, 255, 0.85);
-      --glass-light-border: rgba(255, 255, 255, 0.35);
-      --text-primary: #0d1117;
-      --text-secondary: rgba(13, 17, 23, 0.75);
-      --text-tertiary: rgba(13, 17, 23, 0.55);
-      --accent-dark: #0d1117;
-      --accent-text: #ffffff;
-      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
-      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.15);
-    }
-
-    html[data-theme="dark"] {
-      --bg-primary: #0d1117;
-      --bg-secondary: #161b22;
-      --glass-light: rgba(30, 34, 46, 0.85);
-      --glass-light-border: rgba(255, 255, 255, 0.12);
-      --text-primary: #f0f6fc;
-      --text-secondary: rgba(240, 246, 252, 0.8);
-      --text-tertiary: rgba(240, 246, 252, 0.6);
-      --accent-dark: #f0f6fc;
-      --accent-text: #0d1117;
-      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
-      --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.6);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      height: 100%;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body { height: 100%; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
-      color: var(--text-primary);
-      background:
-        radial-gradient(
-          ellipse 1500px 800px at 50% 0%,
-          var(--bg-secondary),
-          transparent 65%
-        ),
-        linear-gradient(
-          to bottom,
-          var(--bg-primary),
-          var(--bg-primary)
-        );
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
       min-height: 100vh;
-      padding: 40px 20px;
+      padding: 48px 20px 64px;
       overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Background grid + red glows */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255, 59, 59, 0.18), transparent 42%),
+        radial-gradient(circle at 92% 95%, rgba(255, 59, 59, 0.12), transparent 45%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .wrapper {
-      max-width: 920px;
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
       margin: 0 auto;
+      animation: fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
 
-    /* Header with theme toggle */
-    .header {
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Top bar */
+    .topbar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       margin-bottom: 32px;
       padding: 0 4px;
     }
-
-    .header-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-    }
-
-    .theme-toggle {
-      appearance: none;
-      background: var(--glass-light);
-      border: 1px solid var(--glass-light-border);
-      color: var(--text-primary);
-      border-radius: 100px;
-      padding: 8px 14px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: var(--shadow-sm);
-      text-transform: uppercase;
-    }
-
-    .theme-toggle:hover {
-      background: rgba(255, 255, 255, 0.65);
-      border-color: rgba(255, 255, 255, 0.45);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .theme-toggle:active {
-      transform: translateY(0);
-    }
-
-    .theme-toggle:focus-visible {
-      outline: 2px solid var(--accent-dark);
-      outline-offset: 4px;
-    }
-
-    /* Main Glass Card */
-    .glass-card {
-      background: var(--glass-light);
-      border: 1px solid var(--glass-light-border);
-      border-radius: var(--radius);
-      padding: 56px 52px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Animated subtle gradient overlay */
-    .glass-card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background:
-        radial-gradient(
-          circle at 20% 50%,
-          rgba(13, 17, 23, 0.03),
-          transparent 50%
-        ),
-        radial-gradient(
-          circle at 80% 80%,
-          rgba(13, 17, 23, 0.02),
-          transparent 50%
-        );
-      pointer-events: none;
-      animation: gradientShift 20s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(30px, 30px); }
-    }
-
-    .glass-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Header section */
-    .header-section {
-      margin-bottom: 36px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--glass-light-border);
-    }
-
-    h1 {
-      font-size: 42px;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin: 0;
-      background: linear-gradient(
-        135deg,
-        var(--text-primary) 0%,
-        var(--text-secondary) 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Content sections */
-    .policy-section {
-      margin-bottom: 32px;
-    }
-
-    h2 {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 14px;
-      margin-top: 0;
-      padding: 8px 0;
-    }
-
-    .policy-section:first-of-type h2 {
-      margin-top: 0;
-    }
-
-    p {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 12px;
-    }
-
-    p strong {
-      color: var(--text-primary);
-      font-weight: 700;
-    }
-
-    /* Links */
-    a {
-      color: var(--accent-dark);
-      text-decoration: none;
-      font-weight: 700;
-      position: relative;
+    .brand {
       display: inline-flex;
       align-items: center;
+      gap: 10px;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: block;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(255, 59, 59, 0.18), 0 8px 22px rgba(255, 59, 59, 0.28);
+    }
+    .brand-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(255, 59, 59, 0.28);
     }
 
-    a::after {
+    /* Card */
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 56px 56px 48px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.03) inset,
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 59, 59, 0.04);
+      overflow: hidden;
+    }
+    .card::before {
       content: "";
       position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--accent-dark);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      top: -1px; left: 25%; right: 25%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 59, 59, 0.55), transparent);
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 420px; height: 420px;
+      top: -220px; right: -160px;
+      background: radial-gradient(circle, rgba(255, 59, 59, 0.18), transparent 65%);
+      pointer-events: none;
+    }
+    .card > * { position: relative; z-index: 1; }
+
+    /* Hero */
+    .hero {
+      padding-bottom: 32px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 16px;
+    }
+    .hero-tag .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lead {
+      font-size: 16px;
+      color: var(--text-2);
+      line-height: 1.6;
+      max-width: 620px;
     }
 
-    a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+    /* Meta strip */
+    .meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-3);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 7px 12px;
+      border-radius: 100px;
+    }
+    .meta strong { color: var(--text-2); font-weight: 600; }
+
+    /* Sections */
+    .section {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-of-type { border-bottom: none; }
+
+    .num {
+      font-family: "SF Mono", ui-monospace, Menlo, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      padding-top: 2px;
+    }
+    .section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.7;
     }
 
-    a:focus-visible {
-      outline: 2px solid var(--accent-dark);
-      outline-offset: 4px;
-      border-radius: 2px;
-    }
-
-    /* Divider */
+    /* Footer / contact block */
     .divider {
       height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--glass-light-border) 20%,
-        var(--glass-light-border) 80%,
-        transparent
-      );
-      margin: 36px 0;
+      background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+      margin: 36px 0 28px;
     }
 
-    /* Footer section */
-    .footer-section {
-      padding-top: 20px;
+    .contact {
       text-align: center;
     }
+    .contact-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 10px;
+    }
+    .contact p {
+      font-size: 14.5px;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
 
-    .footer-section p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-tertiary);
+    /* Email reveal button */
+    .contact-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .btn {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      font-family: inherit;
+    }
+    .btn svg { width: 15px; height: 15px; }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--accent) 0%, #e02a2a 100%);
+      color: #fff;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.15) inset,
+        0 0 0 1px rgba(255, 59, 59, 0.3),
+        0 10px 24px rgba(255, 59, 59, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.2) inset,
+        0 0 0 1px rgba(255, 59, 59, 0.45),
+        0 14px 32px rgba(255, 59, 59, 0.45);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      background: var(--surface-2);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background: #1f1f26;
+      border-color: rgba(255, 59, 59, 0.35);
+      transform: translateY(-2px);
+    }
+    .btn-secondary.hidden { display: none; }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .email-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg);
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-top: 14px;
+      font-family: "SF Mono", ui-monospace, Menlo, monospace;
+      font-size: 13.5px;
+      color: var(--text);
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-4px);
+      transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease, margin 0.25s ease, padding 0.25s ease;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+    }
+    .email-box.visible {
+      max-height: 60px;
+      opacity: 1;
+      transform: translateY(0);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 14px;
+    }
+    .email-box .copy-btn {
+      background: transparent;
+      color: var(--text-2);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 4px 9px;
+      font-size: 11.5px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .email-box .copy-btn:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .email-box .copy-btn.copied {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .page-footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .glass-card {
-        padding: 40px 30px;
-        border-radius: 18px;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      h2 {
-        font-size: 11px;
-      }
-
-      p {
-        font-size: 14px;
-      }
+    @media screen and (max-width: 720px) {
+      .card { padding: 40px 28px 36px; }
+      h1 { font-size: 36px; }
+      .section { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+      .num { padding-top: 0; }
+    }
+    @media screen and (max-width: 460px) {
+      .card { padding: 32px 22px 30px; border-radius: 16px; }
+      h1 { font-size: 30px; }
+      .topbar { margin-bottom: 22px; }
+      .btn { width: 100%; }
+      .contact-actions { width: 100%; flex-direction: column; }
     }
 
-    @media (max-width: 520px) {
-      .glass-card {
-        padding: 28px 20px;
-        border-radius: 14px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      .header-section {
-        margin-bottom: 24px;
-        padding-bottom: 24px;
-      }
-
-      .policy-section {
-        margin-bottom: 24px;
-      }
-    }
-
-    /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
-      * {
+      *, *::before, *::after {
         animation: none !important;
         transition: none !important;
       }
     }
   </style>
 </head>
-
 <body>
   <div class="wrapper">
-    <div class="header">
-      <div class="header-title">Privacy & Security</div>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
-        ☀️ / 🌙
-      </button>
+    <div class="topbar">
+      <div class="brand">
+        <img class="brand-mark" src="1024.png" alt="TextCapture" width="32" height="32" />
+        <span class="brand-name">TextCapture</span>
+      </div>
+      <span class="eyebrow">Privacy &amp; Security</span>
     </div>
 
-    <div class="glass-card">
-      <div class="header-section">
-        <h1>TextCapture</h1>
+    <div class="card">
+      <div class="hero">
+        <div class="hero-tag"><span class="dot"></span> Privacy Policy for TextCapture</div>
+        <h1>Your data <span class="accent">stays</span> on your Mac.</h1>
+        <p class="lead">TextCapture is built with privacy at its core — no tracking, no analytics, no servers. What you capture is yours, and it never leaves your device.</p>
+        <div class="meta">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <strong>Last Updated:</strong> January 2026
+        </div>
       </div>
 
-      <div class="policy-section">
-        <h2>Privacy Policy for TextCapture</h2>
-        <p><strong>Last Updated: January 2026</strong></p>
+      <div class="section">
+        <div class="num">01</div>
+        <div>
+          <h2>Data Collection</h2>
+          <p>TextCapture does not collect, store, or transmit any personal data, user information, or analytics. The app operates entirely on your local machine.</p>
+        </div>
       </div>
 
-      <div class="policy-section">
-        <h2>1. Data Collection</h2>
-        <p>TextCapture does not collect, store, or transmit any personal data, user information, or analytics. The app operates entirely on your local machine.</p>
+      <div class="section">
+        <div class="num">02</div>
+        <div>
+          <h2>Local Storage</h2>
+          <p>All captured text is stored locally on your computer. No data is sent to external servers.</p>
+        </div>
       </div>
 
-      <div class="policy-section">
-        <h2>2. Local Storage</h2>
-        <p>All captured text is stored locally on your computer. No data is sent to external servers.</p>
+      <div class="section">
+        <div class="num">03</div>
+        <div>
+          <h2>Permissions</h2>
+          <p>TextCapture requests screen capture permission only to allow you to capture text from your screen. This is processed locally.</p>
+        </div>
       </div>
 
-      <div class="policy-section">
-        <h2>3. Permissions</h2>
-        <p>TextCapture requests screen capture permission only to allow you to capture text from your screen. This is processed locally.</p>
+      <div class="section">
+        <div class="num">04</div>
+        <div>
+          <h2>Third-Party Services</h2>
+          <p>TextCapture does not use any third-party services, analytics tools, or tracking software.</p>
+        </div>
       </div>
 
-      <div class="policy-section">
-        <h2>4. Third-Party Services</h2>
-        <p>TextCapture does not use any third-party services, analytics tools, or tracking software.</p>
-      </div>
-
-      <div class="policy-section">
-        <h2>5. Changes to This Policy</h2>
-        <p>We may update this policy from time to time. Any changes will be posted here with an updated date.</p>
+      <div class="section">
+        <div class="num">05</div>
+        <div>
+          <h2>Changes to This Policy</h2>
+          <p>We may update this policy from time to time. Any changes will be posted here with an updated date.</p>
+        </div>
       </div>
 
       <div class="divider"></div>
 
-      <div class="footer-section">
-        <p>
-          If you have questions about this privacy policy, please contact me at
-          <a href="mailto:tanvir4talk+appsupport@gmail.com">tanvir4talk+appsupport@gmail.com</a>.
-        </p>
+      <div class="contact">
+        <div class="contact-title">Questions about this policy?</div>
+        <p>If you have questions about this privacy policy, please get in touch.</p>
+        <div class="contact-actions">
+          <button class="btn btn-primary" id="revealBtn" type="button" aria-expanded="false" aria-controls="emailBox">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span id="revealLabel">Contact</span>
+          </button>
+          <a class="btn btn-secondary hidden" id="mailBtn" href="#" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2L11 13"/>
+              <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+            Open in Mail
+          </a>
+        </div>
+        <div class="email-box" id="emailBox" role="region" aria-label="Contact email address">
+          <span id="emailText"></span>
+          <button class="copy-btn" id="copyBtn" type="button" aria-label="Copy email to clipboard">Copy</button>
+        </div>
       </div>
     </div>
+
+    <p class="page-footer">© 2026 Tanvir N Hasan · TextCapture</p>
   </div>
 
   <script>
     (function () {
-      const root = document.documentElement;
-      const btn = document.getElementById("themeToggle");
+      var parts = ["tanvir4talk", "+", "appsupport", "@", "gmail", ".", "com"];
+      var email = parts.join("");
 
-      const saved = localStorage.getItem("theme");
-      if (saved === "light" || saved === "dark") {
-        root.setAttribute("data-theme", saved);
-      }
+      var revealBtn = document.getElementById("revealBtn");
+      var revealLabel = document.getElementById("revealLabel");
+      var emailBox = document.getElementById("emailBox");
+      var emailText = document.getElementById("emailText");
+      var mailBtn = document.getElementById("mailBtn");
+      var copyBtn = document.getElementById("copyBtn");
 
-      function updateToggle() {
-        const theme = root.getAttribute("data-theme");
-        if (theme === "dark") {
-          btn.textContent = "☀️ Light";
-        } else if (theme === "light") {
-          btn.textContent = "🌙 Dark";
+      var revealed = false;
+
+      revealBtn.addEventListener("click", function () {
+        revealed = !revealed;
+        if (revealed) {
+          emailText.textContent = email;
+          emailBox.classList.add("visible");
+          mailBtn.classList.remove("hidden");
+          mailBtn.href = "mailto:" + email + "?subject=" + encodeURIComponent("TextCapture Privacy Policy");
+          revealLabel.textContent = "Hide Email";
+          revealBtn.setAttribute("aria-expanded", "true");
         } else {
-          btn.textContent = "☀️ / 🌙";
+          emailBox.classList.remove("visible");
+          mailBtn.classList.add("hidden");
+          mailBtn.removeAttribute("href");
+          revealLabel.textContent = "Contact";
+          revealBtn.setAttribute("aria-expanded", "false");
         }
-      }
+      });
 
-      updateToggle();
-
-      btn.addEventListener("click", function () {
-        const current = root.getAttribute("data-theme");
-        const next = current === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
-        updateToggle();
+      copyBtn.addEventListener("click", function () {
+        var done = function () {
+          copyBtn.textContent = "Copied";
+          copyBtn.classList.add("copied");
+          setTimeout(function () {
+            copyBtn.textContent = "Copy";
+            copyBtn.classList.remove("copied");
+          }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(done).catch(fallback);
+        } else {
+          fallback();
+        }
+        function fallback() {
+          var ta = document.createElement("textarea");
+          ta.value = email;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "absolute";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(ta);
+          done();
+        }
       });
     })();
   </script>
